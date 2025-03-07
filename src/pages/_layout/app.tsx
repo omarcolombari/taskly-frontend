@@ -20,8 +20,6 @@ export function AppLayout() {
           const status = error.response?.status
           const code = error.response?.data.message
 
-          console.log(status, code)
-
           if (
             status === 401 &&
             (code === 'Unauthorized' || code === 'Usuário não encontrada')
