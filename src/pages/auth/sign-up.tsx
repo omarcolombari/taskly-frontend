@@ -22,6 +22,7 @@ import {
 } from '@/components/ui/form'
 import { useSignUp } from '@/http/generated/api'
 import { toast } from 'sonner'
+import { Loader2 } from 'lucide-react'
 
 const signUpSchema = z.object({
   name: z.string().min(1, 'Informe um nome.'),
@@ -42,7 +43,7 @@ export function SignUp() {
   })
   const navigate = useNavigate()
 
-  const { mutateAsync: signUpFn } = useSignUp({
+  const { mutateAsync: signUpFn, isPending: isSigningUp } = useSignUp({
     mutation: {
       onSuccess() {
         navigate('/sign-in')
@@ -112,8 +113,14 @@ export function SignUp() {
             />
           </CardContent>
           <CardFooter className="flex flex-col space-y-4 mt-5">
-            <Button type="submit" className="w-full">
-              Entrar
+            <Button type="submit" className="w-full" disabled={isSigningUp}>
+              {isSigningUp ? (
+                <>
+                  <Loader2 className="animate-spin" /> Criando
+                </>
+              ) : (
+                'Cadastrar'
+              )}
             </Button>
             <p className="text-center text-sm text-gray-600">
               Já tem uma conta?{' '}

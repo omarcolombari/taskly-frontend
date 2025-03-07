@@ -7,3 +7,9 @@ export function isAuthenticated() {
 
   return !!cookies.get(TOKEN_COOKIE_KEY)
 }
+
+export function logout() {
+  const cookies = new Cookies()
+
+  cookies.remove(TOKEN_COOKIE_KEY)
+}

@@ -24,6 +24,7 @@ import { useSignIn } from '@/http/generated/api'
 import Cookies from 'universal-cookie'
 import { toast } from 'sonner'
 import { TOKEN_COOKIE_KEY } from '@/auth/auth'
+import { Loader2 } from 'lucide-react'
 
 const signInSchema = z.object({
   email: z.string().email('Informe um e-mail válido!'),
@@ -43,7 +44,7 @@ export function SignIn() {
 
   const navigate = useNavigate()
 
-  const { mutateAsync: signInFn } = useSignIn({
+  const { mutateAsync: signInFn, isPending: isSigning } = useSignIn({
     mutation: {
       onSuccess(data) {
         const cookies = new Cookies()
@@ -107,8 +108,14 @@ export function SignIn() {
             />
           </CardContent>
           <CardFooter className="flex flex-col space-y-4 mt-5">
-            <Button type="submit" className="w-full">
-              Entrar
+            <Button type="submit" className="w-full" disabled={isSigning}>
+              {isSigning ? (
+                <>
+                  <Loader2 className="animate-spin" /> Entrando
+                </>
+              ) : (
+                'Entrar'
+              )}
             </Button>
             <p className="text-center text-sm text-gray-600">
               Ainda não tem uma conta?{' '}

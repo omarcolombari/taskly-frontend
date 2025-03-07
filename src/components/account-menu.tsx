@@ -10,8 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
-import Cookies from 'universal-cookie'
-import { TOKEN_COOKIE_KEY } from '@/auth/auth'
+import { logout } from '@/auth/auth'
 import { useGetProfileInformation } from '@/http/generated/api'
 import { Skeleton } from './ui/skeleton'
 
@@ -22,9 +21,7 @@ export function AccountMenu() {
     useGetProfileInformation()
 
   function handleLogout() {
-    const cookies = new Cookies()
-
-    cookies.remove(TOKEN_COOKIE_KEY)
+    logout()
 
     navigate('/sign-in')
   }
