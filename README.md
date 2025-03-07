@@ -1,54 +1,63 @@
-# React + TypeScript + Vite
+# Taskly - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Taskly é uma aplicação web para gerenciamento de tarefas. Os usuários podem se cadastrar, criar, editar e excluir tarefas de forma intuitiva. O projeto foi desenvolvido como parte de um teste técnico.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este projeto foi desenvolvido com as seguintes tecnologias:
 
-## Expanding the ESLint configuration
+- [Vite](https://vitejs.dev/) - Build rápido e otimizado para React
+- [React](https://react.dev/) - Biblioteca para construção de interfaces
+- [TailwindCSS](https://tailwindcss.com/) - Estilização com classes utilitárias
+- [ShadCN UI](https://ui.shadcn.com/) - Componentes de UI acessíveis e estilizados
+- [Orval](https://orval.dev/) - Geração automática de hooks a partir da OpenAPI
+- [React Query](https://tanstack.com/query/latest) - Gerenciamento de estado assíncrono
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📋 Pré-requisitos
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Antes de iniciar, você precisará ter instalado:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- [Node.js](https://nodejs.org/)
+- [pnpm](https://pnpm.io/)
+- O backend da aplicação, disponível em: [Taskly Backend](https://github.com/omarcolombari/taskly-backend)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🔧 Instalação e Execução
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+1. Clone o repositório:
+
+   ```sh
+   git clone https://github.com/omarcolombari/taskly-frontend.git
+   cd taskly-frontend
+   ```
+
+2. Instale as dependências:
+
+   ```sh
+   pnpm install
+   ```
+
+3. Configure as variáveis de ambiente:
+
+   Crie um arquivo `.env` na raiz do projeto e adicione:
+
+   ```sh
+   VITE_API_URL='http://localhost:3333'
+   ```
+
+4. Inicie o projeto:
+
+   ```sh
+   pnpm dev
+   ```
+
+## 📌 Funcionalidades
+
+- Cadastro e autenticação de usuários
+- Criação, edição e exclusão de tarefas
+- Listagem dinâmica de tarefas utilizando React Query
+- UI moderna e responsiva com ShadCN UI e TailwindCSS
+- Conexão com API documentada via OpenAPI (Orval)
+
+## 📼 Conexão com a API
+
+A API já está documentada e o Orval gera automaticamente os hooks para requisições baseadas no OpenAPI.
