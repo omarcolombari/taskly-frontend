@@ -13,6 +13,17 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 - [Orval](https://orval.dev/) - Geração automática de hooks a partir da OpenAPI
 - [React Query](https://tanstack.com/query/latest) - Gerenciamento de estado assíncrono
 
+## 📝 Decisões Técnicas
+
+### Uso do ShadCN UI
+
+Optamos pelo **ShadCN UI** pois é uma biblioteca extremamente bela e agiliza o processo de criação do design da aplicação. Além disso, é altamente customizável, permitindo adaptações conforme a identidade visual do projeto.
+
+### Uso do Orval
+
+O **Orval** foi escolhido para gerar automaticamente as requisições HTTP a partir da documentação OpenAPI do backend. Como a API do Taskly já estava bem documentada, essa escolha permitiu economizar tempo e evitar a escrita manual de múltiplos hooks para consumo dos endpoints.
+
+
 ## 📋 Pré-requisitos
 
 Antes de iniciar, você precisará ter instalado:
