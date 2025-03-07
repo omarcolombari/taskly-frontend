@@ -1,4 +1,4 @@
-import { Home, LayoutList, UtensilsCrossed } from 'lucide-react'
+import { Home, LayoutList } from 'lucide-react'
 import { NavLink } from 'react-router'
 import { ThemeToggle } from './theme/theme-toggle'
 import { Separator } from './ui/separator'
