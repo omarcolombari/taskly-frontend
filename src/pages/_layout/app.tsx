@@ -20,7 +20,12 @@ export function AppLayout() {
           const status = error.response?.status
           const code = error.response?.data.message
 
-          if (status === 401 && code === 'Unauthorized') {
+          console.log(status, code)
+
+          if (
+            status === 401 &&
+            (code === 'Unauthorized' || code === 'Usuário não encontrada')
+          ) {
             logout()
             navigate('/sign-in', { replace: true })
           } else {
